@@ -1,0 +1,394 @@
+\documentclass[10pt]{article}
+\date{October 13, 2024}
+\usepackage{mathtools}
+\usepackage{fourier}
+\usepackage{listings}
+\usepackage{color}
+\usepackage[toc,page]{appendix}
+\usepackage{gensymb}
+\usepackage{amssymb}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\usepackage[a-1b]{pdfx}
+\usepackage{framed}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{epstopdf}
+\usepackage{wrapfig}
+
+\let\oldquote\quote
+\let\endoldquote\endquote
+\renewenvironment{quote}[2][]
+  {\if\relax\detokenize{#1}\relax
+     \def\quoteauthor{#2}%
+   \else
+     \def\quoteauthor{#2~---~#1}%
+   \fi
+   \oldquote}
+  {\par\nobreak\smallskip\hfill(\quoteauthor)%
+   \endoldquote\addvspace{\bigskipamount}}
+
+
+\newenvironment{attention}[1][\hsize]%
+{%
+        \noindent
+        \def\FrameCommand%
+        {%   
+             \fboxsep=\FrameSep\colorbox{gray!5}%
+        }%
+        \MakeFramed{}%
+}%
+{\endMakeFramed}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\ttfamily\footnotesize},
+  numbers=left,
+  numberstyle=\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=4
+}
+
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage[some]{background}
+\usepackage{lipsum}
+
+\hypersetup{colorlinks=true,linkcolor=blue, linktocpage,pdftitle={The Bill of Rights}}
+
+\definecolor{titlepagecolor}{cmyk}{1,.60,0,.40}
+
+\DeclareFixedFont{\bigsf}{OT1}{ptm}{b}{n}{1.5cm}
+
+\backgroundsetup{
+scale=1,
+angle=0,
+opacity=1,
+contents={\begin{tikzpicture}[remember picture,overlay]
+ \path [fill=titlepagecolor] (-0.5\paperwidth,5) rectangle (0.5\paperwidth,10);  
+\end{tikzpicture}}
+}
+\makeatletter                       
+\def\printauthor{%
+    {\large \@author}\\
+    Document version: 0.3}
+\makeatother
+\author{Robert J.~Hansen}
+
+\begin{document}
+\begin{titlepage}
+\BgThispage
+\newgeometry{left=1cm,right=4cm}
+\vspace*{2cm}
+\noindent
+\textcolor{white}{\bigsf The Bill of Rights}
+\vspace*{2.5cm}\par
+\noindent
+\begin{minipage}{0.35\linewidth}
+    \begin{flushright}
+        \printauthor
+    \end{flushright}
+\end{minipage} \hspace{15pt}
+%
+\begin{minipage}{0.02\linewidth}
+    \rule{1pt}{175pt}
+\end{minipage} \hspace{-10pt}
+%
+\begin{minipage}{0.6\linewidth}
+\vspace{5pt}
+\begin{abstract}
+Lorem ipsum.
+\end{abstract}
+\end{minipage}
+\end{titlepage}
+\restoregeometry
+\thispagestyle{empty}
+\clearpage
+\section*{Changelog:}
+\begin{itemize}
+  \item 0.3: finally got professional-quality typesetting done.  Now to work on content.
+\end{itemize}
+\clearpage
+\thispagestyle{empty}
+\tableofcontents
+\twocolumn
+\clearpage\thispagestyle{empty}\mbox{}\clearpage
+
+\setcounter{page}{1}
+
+\section{Intent and scope}
+The Bill of Rights is an important birthright of every American, but few of us know how to think about our Constitutionally-guaranteed rights in a systematic way.  This paper, aimed at high school students, will give a tour of some of our rights and introduce a framework by which citizens can reason about them.
+
+\subsection{A note for educators}
+This is a living document.  You can always find the latest at \href{https://github.com/rjhansen/conlaw}{GitHub}.\footnote{\tt https://github.com/rjhansen/conlaw}.  Typos, errors, and other bug reports should go to the \href{https://github.com/rjhansen/conlaw/issues}{bug tracker}.\footnote{\tt https://github.com/rjhansen/conlaw/issues}
+
+\subsection{About the author}
+By training I'm a mathematician, by profession an engineer.  This makes me the black sheep of my family, since I'm the son of a judge, nephew to the head of corporate counsel for a billion-dollar firm, and cousin to another judge.
+
+Growing up with them certainly doesn't make me an attorney, but they wouldn't let me escape without knowing the Bill of Rights, either.
+
+\subsection{Legal notices}
+This work is copyright \textcopyright{} 2024 by Robert J.~Hansen and made available under the \href{https://creativecommons.org/licenses/by-nd/4.0/}{Creative Commons Attrib-NoDerivatives 4.0 International License}.\footnote{\tt https://creativecommons.org/licenses/by-nd/4.0/}
+
+\section{The history of the Bill of Rights}
+The United States wasn't invented in a laboratory.  The people who came together to draft the new Constitution had just won their freedom in a brutal war against a tyrannical king, and they wished to ensure the new government they were creating would not repeat the horrors of King George III.
+
+There were two factions with different visions of how to do this.  You can think of these factions as maybe our first political parties: the Federalists and the Anti-Federalists.
+
+The Federalists thought that by carefully specifying what the government was allowed to do, everything else would be forbidden to it: if Congress was given no power to abridge free speech, how could they enact laws abridging it?
+
+The Anti-Federalists thought this was na\"{i}ve.  To them the lesson of history was that governments always tended to exceed their original authority.  Our rights would be best safeguarded not by trusting the government to respect its limits, but by spelling out for every citizen exactly what those limits were and encouraging the voters to keep the government in check.
+
+Ultimately there was a compromise, and the Constitution started its life with a robust set of explicit protections of our rights.  These first ten amendments are collectively called the Bill of Rights.
+
+\subsection{Who's paying this bill, anyway?}
+
+In the late 1700s the words ``bill'' and ``law'' were synonymous.  You can think of it as ``the Law of Rights'' if you want to: you won't be doing the Bill of Rights any harm.
+
+Today ``bill'' means a debt that must be paid, or a proposed law that hasn't yet become official.  Neither meaning is accurate for the Bill of Rights.
+
+\section{Common misunderstandings}
+
+No law is more essential for a citizen to understand than the Bill of Rights.  No law is as misunderstood, either.  Let's start our discussion by tackling some mistaken ideas --- ideas you, through no fault of your own, might already possess.  If we can start without misunderstandings, everything else will be easier.
+
+\subsection{You have to obey them.}
+
+The Bill of Rights doesn't govern you.  Period, end of sentence.  The Bill of Rights governs the government, not people or businesses or groups.
+
+Sometimes when someone acts hatefully on social media they'll try to dodge the consequences by saying, ``I have a First Amendment right to say ugly things here!''
+  
+Don't believe it!
+  
+They have the right to be free from the government punishing them for their opinion, but not from social media moderators holding them accountable for violating the terms of service.
+
+The Bill of Rights governs the government --- not us!
+
+\subsection{They're absolute}
+None of us live in isolation.  The way we exercise our freedoms might restrict how someone else can exercise theirs.  Sometimes it's more just to practice ``first come, first serve'', and other times it's more just to let other considerations enter the picture.
+
+Regardless of which one we choose, we're choosing to place rules on how we exercise rights.  This means rights can't be absolute.
+
+One of the most important jobs of the federal courts is determining not just where the limits of our rights are drawn, but why we draw them there.  By publishing the ``why?'' in court opinions, it lets lawyers and interested citizens figure out how to apply their reasoning to our own cases.
+
+\subsection{``Reasonable regulations''}
+
+\begin{quote}{\href{https://en.wikipedia.org/wiki/David_R._Hansen}{Judge David R.~Hansen}}
+The problem with subjecting Constitutional rights to reasonable regulation is they exist to protect deeply unreasonable people.
+\end{quote}
+
+Reasonable people don't need their rights protected.  No one needs the Bill of Rights to say they think the world would be a better place if we were all a little more kind to each other.  Things welcomed by society are already well-protected.
+
+Our rights exist to protect us when we're making the world angry at us, by making it clear it doesn't matter how angry people get, the government won't harm us.
+
+Whenever someone proposes restricting a Constitutional right because it's ``reasonable'' to do so, that's very often the first sign they don't have your best interests at heart.  You're an American.  Protect your right to be unreasonable!
+
+\section{Kinds of rights}
+
+Once we dispel the most common myths, let's talk about what the word ``right'' actually means.  It has a lot of different definitions.  We're going to focus on two.
+
+\subsection{Statutory and Constitutional}
+A {\it statutory right} is a right defined by the government and written down in law books.  If you have a driver's license, you enjoy a statutory right to drive on public roads. 
+
+A {\it Constitutional right} is a right defined by us, the People.  It can be any of:
+
+\begin{itemize}
+\item something written in the Constitution,
+\item something implied by the existence of another Constitutional right,
+\item a cultural tradition inseparable from the American character, 
+\item something inherent in the very concept of ordered liberty.
+\end{itemize}
+
+The third clause there is controversial, but that's the plain-English meaning of the Tenth Amendment.  The fourth clause is called ``substantive due process,'' and owes its existence to a highly controversial --- if not genuinely evil --- 1857 Supreme Court decision called \href{https://en.wikipedia.org/wiki/Dred_Scott_v._Sandford}{\it Dred Scott}.\footnote{{\it Dred Scott} was ``very possibly the first application of substantive due process in the Supreme Court.'' --- David P.~Currie, \href{https://press.uchicago.edu/ucp/books/book/chicago/C/bo5952705.html}{\it The Constitution in the Supreme Court}.}  Sometimes, good things can arise from the ashes of terrible tragedies.
+
+Statutory rights can be abridged in an almost pro-forma fashion.  If you're hauled into traffic court and the judge orders you to turn in your license, that's it, you turn in your license.  Good luck appealing that decision.  You can if you want to, but you'll almost certainly lose: what the government grants you, the government can generally take away from you pretty easily.
+
+Constitutional rights are different.  As a general rule your Constitutional rights can't be removed except by a long and arduous court process.
+
+It's always a good idea to keep the distinction between statutory rights and Constitutional rights clear.
+
+\subsection{Positive and negative}
+Are rights positive or negative?
+
+\subsubsection{Positive}
+A positive right is something the Constitution requires the government do for you, the individual citizen.  There is precisely one positive right for citizens in the Constitution: no matter which state you live in, your state will offer a republican (small-r) government.\footnote{U.S.~Const., Article IV, Section 4: ``The United States shall guarantee to every State in this Union a Republican Form of Government\ldots''. Capitalization rules in the late 1700s were much different than they are today.  The Constitution is not referring to our current Republican Party.}
+
+This means that if Louisiana were to suddenly declare its laws would be made by the King of Spain, the United States government would be Constitutionally compelled to intervene to restore representative government.
+
+For obvious reasons this right exists mostly as a trivia question, but it's an important trivia question.  Some people will tell you Constitutional rights can't be positive, and will use that to argue their particular vision of the Constitution.  Their vision may be beautiful or terrifying, but it's built on a foundation of sand.
+
+\subsubsection{Negative}
+A negative right is something in your life the Constitution forbids the government from interfering with.  You can believe in whatever religious faith you want, or none at all, and all the government can do is say ``have a nice day, citizen.''
+
+The vast majority of Constitutional rights are negative in nature.  This only means the government is forbidden from interfering.  It doesn't mean the right is in any way bad.
+
+\section{Scrutiny and frameworks}
+Each Constitutional right has developed a judicial history, a record of past disputes and how judges of the past resolved them.  In the course of doing this various patterns have emerged, things we've seen time and again until we consider the underlying question completely settled.
+
+For instance, the Sixth Amendment guarantees your right to be represented by a lawyer if you're accused of a crime.  But when does that right begin?  Does it begin once the trial starts and the jury is sworn in, or does it start months before when the police first arrest you?  Thanks to all these prior cases we now have an answer: the moment police arrest you, you have the right to an attorney.
+
+\subsection{Frameworks}
+We generally call about these judicial histories ``frameworks''.  Many frameworks are named after important legal cases.  The {\it Brandenburg} framework, which governs the right to free speech, is one such framework.  The {\it Miranda} framework addresses the rights of arrestees.  There are dozens of frameworks and much of a lawyer's education is spent learning them.
+
+Earlier we said it was a myth that our rights were subject to ``reasonable regulation''.  That's true.  To determine whether a proposed law is permissible we need to ask which legal framework should be applied, and what that framework has to say about the proposed law.
+
+\subsection{Scrutiny}
+These frameworks are built one case at a time.  In each case the judge has to determine the correct way to apply Constitutional principles to the issue before the court.  Judges rely on a tool called ``scrutiny'' to decide these things.
+
+Constitutional questions are usually decided by ``strict scrutiny,'' which is an extremely tough standard for a law to meet.  To decide whether a law passes strict scrutiny, the judge will ask three questions:
+
+\begin{enumerate}
+\item {\bf Does it affect a core purpose of government?}  Something like, ``protecting citizens from crime'' is a core purpose.  It's why we have government!  But there are many other things that aren't core purposes.  If a law runs up against a Constitutional right, it had better be for a core purpose.
+\item {\bf Is this the smallest infringement possible?}  Just because a law affects a core government purpose doesn't mean it's okay.  Did the government take care to shape this law so it infringes as little as possible?  Is this the least restrictive way of achieving the government's purpose?
+\item {\bf What about collateral damage?}  What else is being impacted by this law?  Has this law been narrowly tailored to avoid unwanted side effects?
+\end{enumerate}
+
+If the proposed law survives strict scrutiny, the odds are very good it will be upheld as a necessary regulation of our civil rights.  If any one of the three tests fails, though, the law is very likely to be struck down as unconstitutional.
+
+\subsection{State v.~Federal}
+The federal government is only restricted by the federal Constitution.  State governments are restricted by both the federal Constitution and their individual state constitutions.
+
+This didn't use to be the case.  Originally, state governments were only bound by their state constitutions.  The Bill of Rights didn't apply to the states, and that was the universally-held opinion as late as 1876 in \href{https://tile.loc.gov/storage-services/service/ll/usrep/usrep092/usrep092542/usrep092542.pdf}{\it Cruikshank}.
+
+The tide began to slowly turn after that.  The Supreme Court began to apply the Bill of Rights to the states starting in 1925, with \href{https://tile.loc.gov/storage-services/service/ll/usrep/usrep268/usrep268652/usrep268652.pdf}{\it Gitlow}.  They invented a new legal doctrine, called \href{https://tile.loc.gov/storage-services/service/ll/usrep/usrep268/usrep268652/usrep268652.pdf}{``incorporation,''} for the occasion.  Over the decades since literally every right mentioned in the Bill of Rights has been held to apply to state governments, with only one exception (and it's living on borrowed time).
+
+(Specifically, it's the right to a jury trial in civil litigation where there's more than twenty dollars at stake.  States aren't obliged to follow this, not yet.  Former President Donald Trump thought his right to a jury trial was violated when New York hauled him into state court for a civil trial involving hundreds of millions of dollars --- but New York wasn't required to offer him a jury, whereas if it had been in federal court he could have demanded one.)
+
+\section{The Amendments}
+\subsection{The First}
+\noindent
+{\it ``Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.''}
+
+First-among-equals, the First Amendment protects at least four rights and maybe five, depending on how you interpret the positioning of a comma.
+
+Originally this was interpreted to mean only the federal Congress was forbidden from doing these things.  Today it's a shield against all branches of government, from municipal city councils to school boards all the way up to the White House and the Supreme Court.
+
+Are there four or five rights?  There's no consensus.  Some people think ``abridging the freedom of speech, or of the press'' refers to a single right of free expression, and others think it refers to two rights protecting what you say and do in person and what you promulgate via technological means.
+
+From a citizen's perspective, this is a trivia question that has no bearing on your actual rights.  It does go to show you, though, that after two hundred and fifty years there are things we still haven't hammered out!
+
+You can worship (or not worship) how you wish and the government is forbidden from helping you or hindering you.  You can speak your mind without fear of the government punishing you.  You can find other like-minded people and gather together to do things you couldn't do by yourself.  And finally, if you think the government is going down the wrong path you have the right to tell the government they're screwing up.
+
+Shortly before an election a group of citizens came together to buy airtime on a television station.  They wanted to show the public a movie that was clearly opposed to one particular candidate.  The station refused because of a campaign-finance law which forbade groups from spending money on political speech before an election.  Yet, if a single one of them had enough money to buy the ad, that would've been fine because the government can't interfere with your speech.
+
+This group went to the Supreme Court to ask, ``why is it that by exercising our right to free assembly, we degrade the protection of our freedom to speak?''
+
+In 2010 the Supreme Court said that although campaign finance laws were very important, and preventing corruption in government was very important, it really didn't make any sense for people to lose their right to political speech just because they came together as a group.  Taken to a logical conclusion this would've prevented newspapers from being able to recommend candidates!
+
+That decision was called \href{https://supreme.justia.com/cases/federal/us/558/310/}{\it Citizens United}, and it's still controversial today.  Many people blame it for megacorporations being allowed to donate money in vast quantities to political campaigns.
+
+\subsection{The Second}
+
+At the time the Constitution was drafted there were thirteen states and one federal government, and neither group trusted the other at all.  The states were afraid of the federal government forming a national army, which the states were afraid would be used against them.  The federal government was afraid of not having an army, because there were many threats to the new nation.
+
+``No worries,'' the Anti-Federalists said.  ``If you need troops just ask us nicely and we'll send our state militias to serve under federal authority.  But remember, your army is made of troops who are loyal to us.''
+
+``But how do we know you'll even have a militia?'' the Federalists asked.  ``Armies are expensive.  You can conscript troops, that we believe, but will your state armories have muskets, gunpowder, and shot?  Are you willing to guarantee you'll spend money on those things?''
+
+``No.  We're not going to let the federal government tell us how to spend our money.''
+
+``We seem to be at an impasse, then.''
+
+Although that conversation is fictional it accurately summarizes one of the biggest political debates of the late 1700s: how the nation was going to defend itself.  Ultimately, pro-federal and pro-state groups reached an agreement.  The federal government would agree to never interfere with the right of individual Americans to own weapons.
+
+Suddenly, the political argument vanished.  States didn't have to spend money on weapons.  When they needed them they could use the power of eminent domain to seize weapons from their citizens.  At the same time, other citizens would be conscripted into the military, given these seized weapons, and ordered to go off to war.
+
+The federal government got the ability to quickly summon a national army in time of crisis, and the states managed to avoid the federal government managing their defense budgets.  Everyone wins.
+
+Armed with this historical knowledge, read the text of the Second Amendment:
+
+\vspace{0.5cm}
+{\it ``A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.''}
+\vspace{0.5cm}
+
+{\bf Prefatory clause.}  The first section of the Amendment is often misunderstood, starting with the fact that it has no legal meaning whatsoever.\footnote{\href{https://scholar.google.com/scholar_case?case=6484080926445491577}{\it District of Columbia v Heller}}  It's what attorneys call ``prefatory language''. 
+
+A great example comes from the Preamble to the Constitution, which declares, ``We the People of the United States, in Order to form a more perfect Union, establish Justice, insure domestic Tranquility, provide for the common defence, promote the general Welfare, and secure the Blessings of Liberty to ourselves and our Posterity, do ordain and establish this Constitution for the United States of America.''
+
+Nothing in the Preamble actually does anything.  It doesn't bring the government into being, it doesn't specify our rights.  It only exists to explain the rest of what follows, to put it into context.  Likewise with ``[a] well-regulated Militia, being necessary to the security of a free State.''
+
+{\bf Well-regulated militia.}  Militaries talk about ``regular'' and ``irregular'' forces.  We call professional soldiers ``Regular Army''.  Partisans and guerrilas are irregular forces.
+
+{\bf ``A free state.''} No government (``State'') will last long without a regular military.
+
+{\bf The action clause.}  ``[T]he right of the people to keep and bear Arms, shall not be infringed'' is great, but what exactly does that right entail?  Which arms may citizens keep and bear?  Can the government control how we keep and bear arms?
+
+We don't have many answers.  As recently as 1876 the Supreme Court's opinion\footnote{\href{https://tile.loc.gov/storage-services/service/ll/usrep/usrep092/usrep092542/usrep092542.pdf}{\it Cruikshank}} was that this only prevented Congress from infringing on the right to keep and bear arms: states weren't required to respect this Amendment at all.  Since virtually all gun laws were passed by state legislatures, the Supreme Court had very little to say.
+
+\vspace{0.5cm}
+
+\textbf{\textit{Miller.}}  In the 1930s a minor gangster named Jack Miller was arrested for carrying a sawed-off shotgun.  This ran afoul of the recently-enacted National Firearms Act, a federal law that tightly regulated sawed-off shotguns, short-barreled rifles, silencers, and machine guns.  Miller was convicted of violating the \textsc{nfa} and appealed his case, claiming Congress had overstepped its authority.
+
+And oh boy, did the weirdness ever start.  Miller vanished before trial and was found dead shortly after, meaning that not only was there no one at the Supreme Court to argue his case, but he was probably already dead when his case was argued!
+
+Still, in 1939 the Supreme Court decided the Second Amendment only protected those arms which had some reasonable usefulness to a military.  Since sawn-off shotguns were gangster weapons of uncertain utility to a professional army, the Supreme Court said Jack Miller's Second Amendment rights were not being violated.\footnote{\href{https://tile.loc.gov/storage-services/service/ll/usrep/usrep307/usrep307174/usrep307174.pdf}{\it Miller}}
+
+Today, both sides of the gun control debate like to think \textit{Miller} is favorable to their side.  People who want gun control point to the National Firearms Act and all the things it tightly regulates, and claim ``if we can do that, clearly we can do this other thing, too.''  People opposed to gun control like to cite the Supreme Court saying weapons with military applications receive Second Amendment protections.
+
+\vspace{0.5cm}
+
+\textbf{\textit{Heller.}}  The Supreme Court gave no guidance on the Second Amendment for almost seventy years after \textit{Miller.}  During that time an ahistorical and terrible misinterpretation of the Second Amendment took root in law schools: that the Second Amendment protected a state's right to form a militia, not an individual right to keep and bear arms.
+
+There are four simple and compelling arguments against this misinterpretation.  They are:
+
+\begin{itemize}
+\item Why, in a list of rights held by individual citizens, would there suddenly be a right for the states?
+\item Did anyone ever think states could be forbidden from forming their own armies and police units?
+\item Why do law textbooks from the early 1800s all the way into World War One all refer to it as an individually held right?\footnote{See, \textit{e.g.,} Justice Thomas McIntyre Cooley's excellent 1880 textbook \href{https://www.constitution.org/1-Constitution/cmt/tmc/pcl.htm}{\it The General Principles of Constitutional Law in the United States of America}. ``It may be supposed from the phraseology of this provision that the right to keep and bear arms was only guaranteed to the militia; but this would be an interpretation not warranted by the intent. \ldots The meaning of the provision undoubtedly is, that the people, from whom the militia must be taken, shall have the right to keep and bear arms, and they need no permission or regulation of law for the purpose.''}
+\item Why does ``the people'' mean ``a state'' in the Second, but ``individual citizens'' in the First, Fourth, Ninth, and Tenth?
+\end{itemize}
+
+Still, despite those four glaring problems the misconception took root and grew, even ensnaring some Supreme Court justices!\footnote{``The gun lobby's interpretation of the Second Amendment is one of the greatest pieces of fraud, I repeat the word fraud, on the American people by special interest groups that I have ever seen in my lifetime.'' --- Justice Warren E.~Burger.  Later he would write, ``the real purpose of the Second Amendment was to ensure that state armies, the militia, would be maintained for the defense of the state'' and ``[t]he very language of the Second Amendment refutes any argument that it was intended to guarantee every citizen an unfettered right to any kind of weapon he or she desires.''}
+
+In the early part of the twenty-first century this question was finally addressed head-on by the Supreme Court.  A former police officer named Richard Heller wanted to own a handgun to protect his home, but Washington, D.C.~forbade it.  At trial the government claimed that Heller had no individual right to keep and bear arms, so the entire lawsuit was moot.
+
+The Supreme Court disagreed.  Certain parts of the case were decided tightly on a 5-4 vote, but one particular thing was agreed upon unanimously:
+
+\vspace{0.5cm}
+
+``The question presented by this case is not whether the Second Amendment protects a `collective right' or an `individual right.' Surely it protects a right that can be enforced by individuals.''
+
+\vspace{0.5cm}
+
+\href{https://scholar.google.com/scholar_case?case=6484080926445491577}{\textit{Heller's}} major contribution was twofold:
+
+\begin{itemize}
+  \item It ended the myth the Second Amendment protected a collective, rather than an individual right, and
+  \item It made clear the government can't just ban weapons that are commonly used for lawful purposes.
+\end{itemize}
+
+But we still didn't know many important things about the Second Amendment.  In fact, it was unclear whether the Second Amendment applied to the states!
+
+\vspace{0.5cm}
+\textbf{\textit{McDonald.}}  A few years later another firearms ban, this time by a state, was challenged in court.  In \href{https://supreme.justia.com/cases/federal/us/561/742/}{McDonald} the Supreme Court ruled the Second Amendment applied to the states.
+
+
+\vspace{0.5cm}
+\textbf{\textit{Caetano.}}  Later on the Massachusetts Supreme Judicial Court claimed the Second Amendment only protected those weapons known to the Framers, and thus upheld Jaime Caetano's conviction for owning a stun gun.  She appealed to the Supreme Court, who found in her favor and warned the Massachusetts court that we do not interpret Constitutional rights that way.  Just as freedom of the press applies to web pages, the Second Amendment protects weapons unknown to the Framers.
+
+\vspace{0.5cm}
+\textbf{\textit{Bruen.}}  Due to a stunning lack of clarity on exactly what the right to keep and bear arms protected, versus what it left open to regulation, in \href{https://supreme.justia.com/cases/federal/us/597/20-843/}{\textit{Bruen}} the Supreme Court tried to offer clarity.  The major takeaway is the best way to argue the Constitutionality of a gun law is to find some similar law from our nation's past: specifically, from either the Framing era or Reconstruction.
+
+\textit{Bruen} didn't say this was the only way to justify gun laws --- only that it was likely the most reliable.
+
+
+
+\clearpage\mbox{}\clearpage
+%\newpage
+%\onecolumn
+%\begin{appendices}
+%\section{Java code}
+%\end{appendices}
+\end{document}
